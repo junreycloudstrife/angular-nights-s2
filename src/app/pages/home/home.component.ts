@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPlaceholderService } from '../../service/json-placeholder.service';
-// import { HttpClientModule } from '@angular/common/http';
-// import { HttpClient } from '@angular/common/http';
 
 export class Feed {
 	author: any = ''
@@ -40,25 +38,10 @@ export class HomeComponent implements OnInit {
 			Object.keys(response).forEach(item => {
 				this.feed.author = response[item].id + ": " + response[item].title
 				this.feed.message = response[item].body
-				console.log(this.feed)
+				// console.log(this.feed)
 				this.posts.push(this.feed)
-				// this.posts.reverse()
 				this.feed = new Feed()
 			})
-			// console.log(response)
 		})
 	}
-	// async post() {
-	// 	this.svc.getPosts().subscribe(resp => {
-	// 		console.log(resp)
-	// 		Object.keys(resp).forEach(item => {
-	// 			// console.log(resp[item].title)
-	// 			this.feed.author = resp[item].title
-	// 			this.feed.message = resp[item].body
-	// 			this.posts.push(this.feed)
-	// 		})
-	// 		this.posts.reverse()
-	// 		this.feed = new Feed()
-	// 	})
-	// }
 }
